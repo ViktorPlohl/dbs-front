@@ -1,0 +1,13 @@
+<div class="container">
+  <app-filter *ngIf="!isSmallScreen"></app-filter>
+  <app-card-grid-container
+    [cardChunks]="filterService.filteredCards$ | async"
+    [isSmallScreen]="isSmallScreen"
+    (selectCard)="openCardDetailDialog($event)"
+  ></app-card-grid-container>
+</div>
+<div class="filter-button" *ngIf="isSmallScreen">
+  <button mat-fab color="warn" aria-label="Example icon button with a filter list icon" (click)="openFilterDialog()">
+    <mat-icon>filter_list</mat-icon>
+  </button>
+</div>

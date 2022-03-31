@@ -1,0 +1,7 @@
+<h1 mat-dialog-title>{{ data.card.name }}</h1>
+<div mat-dialog-content class="content">
+  <div [innerHtml]="data.card.skill.text"></div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Close</button>
+</div>

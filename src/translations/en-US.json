@@ -1,16 +1,22 @@
 {
-  "APP_NAME": "ngX-Rocket",
+  "APP_NAME": "dbs-front",
   "About": "About",
   "Hello world !": "Hello world !",
-  "Home": "Home",
-  "Logged in as": "Logged in as",
-  "Login": "Login",
-  "Logout": "Logout",
-  "Password": "Password",
-  "Password is required": "Password is required",
-  "Username": "Username",
-  "Username is required": "Username is required",
-  "Username or password incorrect.": "Username or password incorrect.",
-  "Remember me": "Remember me",
-  "Version": "Version"
+  "Cards": "Cards",
+  "Version": "Version",
+  "enums": {
+    "colorOptions": {
+      "RED": "Red",
+      "BLUE": "Blue",
+      "GREEN": "Green",
+      "YELLOW": "Yellow",
+      "BLACK": "Black",
+      "RED_GREEN": "Red / Green",
+      "RED_YELLOW": "Red / Yellow",
+      "RED_BLUE": "Red / Blue",
+      "BLUE_YELLOW": "Blue / Yellow",
+      "BLUE_GREEN": "Blue / Green",
+      "GREEN_YELLOW": "Green / Yellow"
+    }
+  }
 }

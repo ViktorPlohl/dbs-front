@@ -1,4 +1,4 @@
-# ngX-Rocket
+# dbs-front
 
 Welcome to the project documentation!
 

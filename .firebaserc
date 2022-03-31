@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "dbs-front": {
+      "hosting": {
+        "dbs-front": [
+          "dbs-front"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "dbs-front"
+  }
+}

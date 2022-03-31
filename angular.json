@@ -1,9 +1,12 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": false
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ng-x-rocket": {
+    "dbs-front": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,22 +23,20 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist",
+            "outputPath": "www",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "src/favicon.ico",
+              "src/favicon.png",
               "src/apple-touch-icon.png",
               "src/robots.txt",
               "src/manifest.webmanifest",
               "src/assets"
             ],
-            "styles": [
-              "src/main.scss"
-            ],
+            "styles": ["src/main.scss"],
             "scripts": []
           },
           "configurations": {
@@ -79,10 +80,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "ng-x-rocket:build:production"
+              "browserTarget": "dbs-front:build:production"
             },
             "development": {
-              "browserTarget": "ng-x-rocket:build:development"
+              "browserTarget": "dbs-front:build:development"
             },
             "ci": {
               "progress": false
@@ -93,34 +94,80 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ng-x-rocket:build"
+            "browserTarget": "dbs-front:build"
           }
         },
         "test": {
-          "builder": "@angular-builders/jest:run",
+          "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "watch": true
+            "main": "src/test.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.spec.json",
+            "karmaConfig": "karma.conf.js",
+            "scripts": [],
+            "styles": ["src/main.scss"],
+            "assets": [
+              "src/favicon.png",
+              "src/apple-touch-icon.png",
+              "src/robots.txt",
+              "src/manifest.webmanifest",
+              "src/assets"
+            ]
           },
           "configurations": {
             "ci": {
-              "watch": false,
-              "ci": true,
-              "coverage": true,
-              "silent": true
+              "progress": false,
+              "watch": false
             }
           }
         },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": [
-              "src/**/*.ts",
-              "src/**/*.html"
-            ]
+            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
+          }
+        },
+        "cypress-run": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "dbs-front:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "dbs-front:serve:production"
+            }
+          }
+        },
+        "cypress-open": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "watch": true,
+            "headless": false
+          }
+        },
+        "e2e": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "dbs-front:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "dbs-front:serve:production"
+            }
+          }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "dbs-front:build:production",
+            "firebaseProject": "dbs-front",
+            "firebaseHostingSite": "dbs-front"
           }
         }
       }
     }
   },
-  "defaultProject": "ng-x-rocket"
+  "defaultProject": "dbs-front"
 }

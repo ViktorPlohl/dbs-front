@@ -1,0 +1,34 @@
+<cdk-virtual-scroll-viewport
+  [itemSize]="cardHeight"
+  class="virtual-grid-viewport"
+  [class.virtual-grid-small-view]="isSmallScreen"
+  [class.virtual-grid-large-view]="!isSmallScreen"
+>
+  <div *cdkVirtualFor="let cards of cardChunks">
+    <div class="card-wrapper" [style]="{ width: cardWidth }" *ngFor="let card of cards">
+      <div class="card">
+        <div class="card-header">
+          <div class="color-wrapper">
+            <div
+              *ngFor="let color of card.color"
+              [class]="'color ' + color.toLowerCase()"
+              [style]="{ width: 100 / card.color.length + '%' }"
+            ></div>
+          </div>
+          <div class="mat-card-header">
+            <div class="number">{{ card.number }}</div>
+            <div class="name">{{ card.name }}</div>
+          </div>
+        </div>
+        <div matRipple class="card-img">
+          <img
+            class="image"
+            src="/assets/images/{{ card.number }}.png"
+            alt="{{ card.name }}"
+            (click)="selectCard.emit(card)"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</cdk-virtual-scroll-viewport>
