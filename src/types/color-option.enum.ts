@@ -1,0 +1,13 @@
+export enum ColorOptionEnum {
+  RED = 'RED',
+  BLUE = 'BLUE',
+  GREEN = 'GREEN',
+  YELLOW = 'YELLOW',
+  BLACK = 'BLACK',
+  RED_GREEN = 'RED_GREEN',
+  RED_YELLOW = 'RED_YELLOW',
+  RED_BLUE = 'RED_BLUE',
+  BLUE_YELLOW = 'BLUE_YELLOW',
+  BLUE_GREEN = 'BLUE_GREEN',
+  GREEN_YELLOW = 'GREEN_YELLOW',
+}

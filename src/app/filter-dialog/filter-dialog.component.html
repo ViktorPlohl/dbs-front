@@ -1,0 +1,125 @@
+<h1 mat-dialog-title>Cards filter</h1>
+<div mat-dialog-content>
+  <form [formGroup]="form">
+    <mat-form-field class="input" appearance="fill" *ngIf="isSmallScreen">
+      <mat-label>Search</mat-label>
+      <input matInput [formControl]="form.controls.searchText" type="text" />
+      <button
+        *ngIf="form.value.searchText && form.value.searchText.length > 0"
+        matSuffix
+        mat-icon-button
+        aria-label="Clear"
+        (click)="clearSearchText()"
+      >
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="select">
+      <mat-label>Series</mat-label>
+      <mat-select [formControl]="form.controls.series" multiple>
+        <mat-select-trigger>
+          {{ (form.value.series ? form.value.series[0] : '') | translate }}
+          <span *ngIf="form.value.series!.length > 1" class="example-additional-selection">
+            (+{{ form.value.series!.length - 1 }} {{ form.value.series!.length === 2 ? 'other' : 'others' }})
+          </span>
+        </mat-select-trigger>
+        <mat-option *ngFor="let series of seriesList" [value]="series">{{ series | translate }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="select">
+      <mat-label>Card type</mat-label>
+      <mat-select [formControl]="form.controls.cardTypes" multiple>
+        <mat-select-trigger>
+          {{ form.value.cardTypes ? form.value.cardTypes[0] : '' }}
+          <span *ngIf="form.value.cardTypes!.length > 1" class="example-additional-selection">
+            (+{{ form.value.cardTypes!.length - 1 }}
+            {{ form.value.cardTypes!.length === 2 ? 'other' : 'others' }}
+            )
+          </span>
+        </mat-select-trigger>
+        <mat-option *ngFor="let cardType of cardTypeList" [value]="cardType">{{ cardType }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="select">
+      <mat-label>Rarity</mat-label>
+      <mat-select [formControl]="form.controls.rarities" multiple>
+        <mat-select-trigger>
+          {{ form.value.rarities ? form.value.rarities[0] : '' }}
+          <span *ngIf="form.value.rarities!.length > 1" class="example-additional-selection">
+            (+{{ form.value.rarities!.length - 1 }}
+            {{ form.value.rarities!.length === 2 ? 'other' : 'others' }}
+            )
+          </span>
+        </mat-select-trigger>
+        <mat-option *ngFor="let rarity of rarityList" [value]="rarity">{{ rarity }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="select">
+      <mat-label>Special trait</mat-label>
+      <mat-select [formControl]="form.controls.specialTraits" multiple>
+        <mat-select-trigger>
+          {{ form.value.specialTraits ? form.value.specialTraits[0] : '' }}
+          <span *ngIf="form.value.specialTraits!.length > 1" class="example-additional-selection">
+            (+{{ form.value.specialTraits!.length - 1 }}
+            {{ form.value.specialTraits!.length === 2 ? 'other' : 'others' }}
+            )
+          </span>
+        </mat-select-trigger>
+        <mat-option *ngFor="let specialTrait of specialTraitList" [value]="specialTrait">{{ specialTrait }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="select">
+      <mat-label>Color</mat-label>
+      <mat-select [formControl]="form.controls.colors" multiple>
+        <mat-select-trigger>
+          {{ 'enums.colorOptions.' + (form.value.colors ? form.value.colors[0] : '') | translate }}
+          <span *ngIf="form.value.colors!.length > 1" class="example-additional-selection">
+            (+{{ form.value.colors!.length - 1 }} {{ form.value.colors!.length === 2 ? 'other' : 'others' }})
+          </span>
+        </mat-select-trigger>
+        <mat-option *ngFor="let color of colorList" [value]="color">{{
+          'enums.colorOptions.' + color | translate
+        }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="select">
+      <mat-label>Character</mat-label>
+      <mat-select [formControl]="form.controls.characters" multiple>
+        <mat-select-trigger>
+          {{ (form.value.characters ? form.value.characters[0] : '') | translate }}
+          <span *ngIf="form.value.characters!.length > 1" class="example-additional-selection">
+            (+{{ form.value.characters!.length - 1 }} {{ form.value.characters!.length === 2 ? 'other' : 'others' }})
+          </span>
+        </mat-select-trigger>
+        <mat-option *ngFor="let character of characterList" [value]="character">{{ character | translate }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="select">
+      <mat-label>Skills</mat-label>
+      <mat-select [formControl]="form.controls.skills" multiple>
+        <mat-select-trigger>
+          {{ (form.value.skills ? form.value.skills[0] : '') | translate }}
+          <span *ngIf="form.value.skills!.length > 1" class="example-additional-selection">
+            (+{{ form.value.skills!.length - 1 }} {{ form.value.skills!.length === 2 ? 'other' : 'others' }})
+          </span>
+        </mat-select-trigger>
+        <mat-option *ngFor="let skill of skillList" [value]="skill">{{ skill | translate }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="select">
+      <mat-label>Power</mat-label>
+      <mat-select [formControl]="form.controls.powerList" multiple>
+        <mat-select-trigger>
+          {{ (form.value.powerList ? form.value.powerList[0] : '') | translate }}
+          <span *ngIf="form.value.powerList!.length > 1" class="example-additional-selection">
+            (+{{ form.value.powerList!.length - 1 }} {{ form.value.powerList!.length === 2 ? 'other' : 'others' }})
+          </span>
+        </mat-select-trigger>
+        <mat-option *ngFor="let power of powerList" [value]="power">{{ power | translate }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onResetClick()">Reset</button>
+</div>

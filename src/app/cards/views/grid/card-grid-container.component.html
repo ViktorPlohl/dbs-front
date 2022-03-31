@@ -1,0 +1,15 @@
+<div
+  appResizeDetectorDirective
+  [distinctUntilChanged]="ElementDimension.OFFSET_WIDTH"
+  (dimensionsChange)="onDimensionChange($event)"
+>
+  <app-card-grid
+    *ngIf="cardHeight && cardWidth"
+    [cardChunks]="cardChunks"
+    [cardHeight]="cardHeight"
+    [cardWidth]="cardWidth"
+    [isSmallScreen]="isSmallScreen"
+    [itemsPerRow]="itemsPerRow"
+    (selectCard)="selectCard.emit($event)"
+  ></app-card-grid>
+</div>

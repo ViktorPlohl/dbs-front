@@ -1,8 +1,8 @@
 {
-  "name": "ngX-Rocket",
-  "short_name": "ngX-Rocket",
-  "theme_color": "#488aff",
-  "background_color": "#488aff",
+  "name": "dbs-front",
+  "short_name": "dbs-front",
+  "theme_color": "#212532",
+  "background_color": "#212532",
   "display": "standalone",
   "scope": "./",
   "start_url": "./",

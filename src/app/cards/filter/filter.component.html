@@ -1,0 +1,45 @@
+<mat-toolbar class="toolbar">
+  <form [formGroup]="form" *ngIf="!isSmallScreen">
+    <mat-form-field class="input" appearance="legacy">
+      <mat-label>Search</mat-label>
+      <input matInput [formControl]="form.controls.searchText" type="text" />
+      <button
+        *ngIf="form.value.searchText && form.value.searchText.length > 0"
+        matSuffix
+        mat-icon-button
+        aria-label="Clear"
+        (click)="clearSearchText()"
+      >
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+  </form>
+  <span class="filtered-cards-count">{{ filterService.filteredCardsCount$ | async }}</span>
+  <span class="example-spacer"></span>
+  <button matRipple class="menu-button" mat-raised-button color="primary">
+    <mat-icon>view_list</mat-icon>
+    List
+  </button>
+  <button matRipple class="menu-button" mat-raised-button color="primary">
+    <mat-icon>view_module</mat-icon>
+    Grid
+  </button>
+  <button matRipple class="menu-button" mat-raised-button color="primary" [matMenuTriggerFor]="menu">
+    <mat-icon>sort</mat-icon>
+    Sort
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item value="price_asc">Price (cheapest first)</button>
+    <button mat-menu-item value="price_desc">Price (most expensive first)</button>
+    <button mat-menu-item value="name_asc">Name (A to Z)</button>
+    <button mat-menu-item value="name_desc">Name (Z to A)</button>
+    <button mat-menu-item value="number_asc">Collector's Number (lowest first)</button>
+    <button mat-menu-item value="number_desc">Collector's Number (highest first)</button>
+    <button mat-menu-item value="rarity_asc">Rarity (most common first)</button>
+    <button mat-menu-item value="rarity_desc">Rarity (rarest first)</button>
+  </mat-menu>
+  <button matRipple class="menu-button" mat-raised-button color="primary" (click)="openDialog()">
+    <mat-icon>filter_alt</mat-icon>
+    Filter
+  </button>
+</mat-toolbar>

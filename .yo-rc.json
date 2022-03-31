@@ -1,0 +1,32 @@
+{
+  "generator-ngx-rocket": {
+    "version": "10.1.2",
+    "props": {
+      "location": "path",
+      "strict": true,
+      "skipInstall": false,
+      "skipQuickstart": false,
+      "initGit": true,
+      "usePrefix": true,
+      "target": ["web", "cordova"],
+      "mobile": ["android"],
+      "ui": "material",
+      "layout": "side-menu",
+      "features": ["pwa", "lazy", "cypress"],
+      "languages": ["en-US"],
+      "tools": ["prettier", "hads"],
+      "utility": ["lodash", "datefns"],
+      "deploy": "firebase",
+      "appName": "dbs-front",
+      "projectName": "dbs-front",
+      "packageManager": "npm",
+      "desktop": [],
+      "pwa": true,
+      "auth": false,
+      "lazy": true,
+      "e2e": false,
+      "cypress": true,
+      "angulartics": false
+    }
+  }
+}
