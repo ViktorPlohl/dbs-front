@@ -12,6 +12,65 @@
 
 .skillText,
 .skillTextBall {
-  vertical-align: middle;
-  margin-right: 5px;
+  margin-right: 3px;
+  color: #fff;
+  padding: 3px;
+  border-radius: 2px;
+}
+
+.auto {
+  background-color: #009fe9;
+}
+
+.permanent {
+  background-color: #e2017e;
+}
+
+span[class*=" activate"] {
+  background-color: #f08300;
+}
+
+.once-per-turn,
+.deflect,
+.double-strike,
+.triple-strike,
+.dual-attack,
+.triple-attack,
+.barrier,
+.energy-exhaust,
+.dragon-ball,
+.rejuvenate,
+.blocker,
+.critical,
+.union-potara,
+.union-absorb,
+.successor,
+.heroic,
+.evolve,
+.ex-evolve,
+.unique,
+.ultimate,
+.wormhole,
+span[class*=" arrival"],
+span[class*=" alliance"],
+span[class*=" burst"],
+span[class*=" empower"],
+span[class*=" sparking"],
+span[class*=" limit"],
+span[class*=" spirit"],
+span[class*=" warrior-of"],
+span[class*=" bond"],
+span[class*=" over-realm"],
+span[class*=" revive"] {
+  background-color: #e60212;
+}
+
+.awaken {
+  background-color: #fdf001;
+  color: #000;
+}
+
+.field,
+span[class*=" counter"] {
+  background-color: #049242;
 }
