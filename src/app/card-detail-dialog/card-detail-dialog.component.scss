@@ -10,12 +10,56 @@
   }
 }
 
-.skillText,
-.skillTextBall {
+.skillText {
   margin-right: 3px;
   color: #fff;
   padding: 3px;
   border-radius: 2px;
+}
+
+.skillTextBall {
+  color: magenta;
+  text-indent: -9999px;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 11px;
+  position: relative;
+  top: 4px;
+  margin-right: 3px;
+  border: 1px solid #09192087;
+
+  &.one,
+  &.two,
+  &.three,
+  &.four,
+  &.five {
+    color: #000;
+    text-indent: initial;
+    text-align: center;
+    line-height: 19px;
+    font-size: 16px;
+  }
+
+  &.blue_ball {
+    background-color: #009fe9;
+  }
+
+  &.red_ball {
+    background-color: #e60212;
+  }
+
+  &.yellow_ball {
+    background-color: #fdf001;
+  }
+
+  &.green_ball {
+    background-color: #049242;
+  }
+
+  &.black_ball {
+    background-color: #000;
+  }
 }
 
 .auto {
@@ -30,27 +74,45 @@ span[class*=" activate"] {
   background-color: #f08300;
 }
 
-.once-per-turn,
-.deflect,
-.double-strike,
-.triple-strike,
-.dual-attack,
-.triple-attack,
-.barrier,
-.energy-exhaust,
-.dragon-ball,
-.rejuvenate,
-.blocker,
-.critical,
-.union-potara,
-.union-absorb,
-.successor,
-.heroic,
-.evolve,
-.ex-evolve,
-.unique,
-.ultimate,
-.wormhole,
+.skillText {
+  &.once-per-turn,
+  &.deflect,
+  &.double-strike,
+  &.triple-strike,
+  &.dual-attack,
+  &.triple-attack,
+  &.barrier,
+  &.energy-exhaust,
+  &.dragon-ball,
+  &.rejuvenate,
+  &.blocker,
+  &.critical,
+  &.union-potara,
+  &.union-absorb,
+  &.successor,
+  &.heroic,
+  &.evolve,
+  &.ex-evolve,
+  &.unique,
+  &.ultimate,
+  &.wormhole,
+  &.offering,
+  &.swap,
+  &.indestructible,
+  &.invoker,
+  &.quadruple-strike,
+  &.revenge,
+  &.servant,
+  &.super-combo,
+  &.union,
+  &.union-fusion,
+  &.victory-strike,
+  &.villainous,
+  &.xeno-evolve {
+    background-color: #e60212;
+  }
+}
+
 span[class*=" arrival"],
 span[class*=" alliance"],
 span[class*=" burst"],
@@ -61,11 +123,15 @@ span[class*=" spirit"],
 span[class*=" warrior-of"],
 span[class*=" bond"],
 span[class*=" over-realm"],
-span[class*=" revive"] {
+span[class*=" dark-over-realm"],
+span[class*=" revive"],
+span[class*=" swap"] {
   background-color: #e60212;
 }
 
-.awaken {
+.awaken,
+.awaken-surge,
+.wish {
   background-color: #fdf001;
   color: #000;
 }
@@ -73,4 +139,9 @@ span[class*=" revive"] {
 .field,
 span[class*=" counter"] {
   background-color: #049242;
+}
+
+.unisonText {
+  background-color: #1f1f1f;
+  color: #ffffff;
 }
